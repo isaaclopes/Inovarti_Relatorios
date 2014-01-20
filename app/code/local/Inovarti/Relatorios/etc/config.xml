@@ -41,4 +41,15 @@
             </adminhtml>
         </routers>
     </admin>
+    <adminhtml>
+        <translate>
+            <modules>
+                <Inovarti_Relatorios>
+                    <files>
+                        <default>Inovarti_Relatorios.csv</default>
+                    </files>
+                </Inovarti_Relatorios>
+            </modules>
+        </translate>
+    </adminhtml>
 </config>

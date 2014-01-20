@@ -5,7 +5,7 @@ class Inovarti_Relatorios_Block_Adminhtml_Sales_Order extends Mage_Adminhtml_Blo
     {
         $this->_blockGroup = 'inovarti_relatorios';
         $this->_controller = 'adminhtml_sales_order';
-        $this->_headerText = Mage::helper('inovarti_relatorios')->__('Inovarti - Relatorio de Orders');
+        $this->_headerText = Mage::helper('inovarti_relatorios')->__('Inovarti – Report Orders');
         parent::__construct();
         $this->_removeButton('add');
     }

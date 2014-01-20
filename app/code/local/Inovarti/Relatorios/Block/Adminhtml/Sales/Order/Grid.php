@@ -84,7 +84,7 @@ class Inovarti_Relatorios_Block_Adminhtml_Sales_Order_Grid extends Mage_Adminhtm
             'index'  => 'shipping_description'
         ));
         $this->addColumn('order_status', array(
-            'header'  => $helper->__('Status'),
+            'header'  => $helper->__('Payment Method'),
             'index'   => 'status',
             'type'    => 'options',
             'options' => Mage::getSingleton('sales/order_config')->getStatuses(),
