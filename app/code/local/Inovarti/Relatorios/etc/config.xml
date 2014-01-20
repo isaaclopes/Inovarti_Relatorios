@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Inovarti_Relatorios>
+            <version>0.0.0.1</version>
+        </Inovarti_Relatorios>
+    </modules>
+    <global>
+        <models>
+            <inovarti_relatorios>
+                <class>Inovarti_Relatorios_Model</class>
+                <resourceModel>inovarti_relatorios_resource</resourceModel>
+            </inovarti_relatorios>
+        </models>
+        <resources>
+            <inovarti_relatorios_setup>
+                <setup>
+                    <module>Inovarti_Relatorios</module>
+                </setup>
+            </inovarti_relatorios_setup>
+        </resources>
+        <blocks>
+            <inovarti_relatorios>
+                <class>Inovarti_Relatorios_Block</class>
+            </inovarti_relatorios>
+        </blocks>
+        <helpers>
+            <inovarti_relatorios>
+                <class>Inovarti_Relatorios_Helper</class>
+            </inovarti_relatorios>
+        </helpers>
+    </global>
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <inovarti_relatorios before="Mage_Adminhtml">Inovarti_Relatorios_Adminhtml</inovarti_relatorios>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+</config>
