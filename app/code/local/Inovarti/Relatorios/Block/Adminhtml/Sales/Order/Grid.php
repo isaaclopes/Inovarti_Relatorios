@@ -33,6 +33,7 @@ class Inovarti_Relatorios_Block_Adminhtml_Sales_Order_Grid extends Mage_Adminhtm
                 array('entity_id' => 'main_table.entity_id')
             )
         ;
+        //echo $collection->getSelect()->__toString();
         $this->setCollection($collection);
         parent::_prepareCollection();
         return $this;
