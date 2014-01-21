@@ -13,7 +13,19 @@ class Inovarti_Relatorios_Block_Adminhtml_Sales_Stockproduct_Grid extends Mage_A
 
     protected function _prepareCollection() {
 
+        
+        $todayStartOfDayDate  = Mage::app()->getLocale()->date()
+            ->setTime('00:00:00')
+            ->toString(Varien_Date::DATETIME_INTERNAL_FORMAT);
+
+        $todayEndOfDayDate  = Mage::app()->getLocale()->date()
+            ->setTime('23:59:59')
+            ->toString(Varien_Date::DATETIME_INTERNAL_FORMAT);
+        
+        
         $collection = Mage::getModel('sales/order_item')->getCollection()
+                ->addfieldtofilter('main_table.created_at', array('to' => $todayStartOfDayDate))
+                ->addfieldtofilter('main_table.updated_at',array('gteq' => $todayEndOfDayDate))
                 ->addAttributeToSelect('created_at')
                 ->addAttributeToSelect('order_id')
                 ->addAttributeToSelect('updated_at')
