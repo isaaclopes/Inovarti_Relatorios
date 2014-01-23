@@ -1,4 +1,10 @@
 <?php
+/**
+ *
+ * @category   Inovarti
+ * @package    Inovarti_Relatorios
+ * @author     Suporte <suporte@inovarti.com.br>
+ */
 class Inovarti_Relatorios_Block_Adminhtml_Sales_Reportproduct extends Mage_Adminhtml_Block_Widget_Grid_Container
 {
     public function __construct()

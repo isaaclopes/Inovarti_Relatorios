@@ -1,5 +1,10 @@
 <?php
-
+/**
+ *
+ * @category   Inovarti
+ * @package    Inovarti_Relatorios
+ * @author     Suporte <suporte@inovarti.com.br>
+ */
 class Inovarti_Relatorios_Model_Reportproduct extends Mage_Reports_Model_Mysql4_Product_Ordered_Collection {
 
     function __construct() {

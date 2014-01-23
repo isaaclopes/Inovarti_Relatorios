@@ -1,5 +1,10 @@
 <?php
-
+/**
+ *
+ * @category   Inovarti
+ * @package    Inovarti_Relatorios
+ * @author     Suporte <suporte@inovarti.com.br>
+ */
 class Inovarti_Relatorios_Adminhtml_ReportproductController extends Mage_Adminhtml_Controller_Action {
 
     public function indexAction() {
