@@ -6,7 +6,8 @@
  * @author     Suporte <suporte@inovarti.com.br>
  */
 class Inovarti_Relatorios_Block_Adminhtml_Sales_Reportproduct_Grid extends Mage_Adminhtml_Block_Report_Grid {
-  
+    protected $_subReportSize = 0;
+    
     public function __construct() {
         parent::__construct();
         $this->setId('inovarti_relatorios_grid');
@@ -17,8 +18,8 @@ class Inovarti_Relatorios_Block_Adminhtml_Sales_Reportproduct_Grid extends Mage_
     }
   
     protected function _prepareCollection() {
+
         parent::_prepareCollection();
-        // Get the data collection from the model
         $this->getCollection()->initReport('inovarti_relatorios/reportproduct');
         return $this;
     }
@@ -68,51 +69,6 @@ class Inovarti_Relatorios_Block_Adminhtml_Sales_Reportproduct_Grid extends Mage_
             'total'     =>'sum',
             'index' => 'qty_pending'
         ));
-        /*
-        $this->addColumn('qty_canceled', array(
-            'header'    =>Mage::helper('reports')->__('Num. Cancelada'),
-            'align'     =>'right',
-            'sortable' => false,
-            'type'      =>'number',
-            'total'     =>'sum',
-            'index' => 'qty_canceled'
-        ));
-        */
-         /*
-        $this->addColumn('qty_invoiced', array(
-            'header'    =>Mage::helper('reports')->__('Num. Faturada'),
-            'align'     =>'right',
-            'sortable' => false,
-            'type'      =>'number',
-            'total'     =>'sum',
-            'index' => 'qty_invoiced'
-        ));
-       
-        $this->addColumn('qty_refunded', array(
-            'header'    =>Mage::helper('reports')->__('Num. Estornada'),
-            'align'     =>'right',
-            'sortable' => false,
-            'type'      =>'number',
-            'total'     =>'sum',
-            'index' => 'qty_refunded'
-        ));
-        $this->addColumn('qty_shipped', array(
-            'header'    =>Mage::helper('reports')->__('Num. Enviadas'),
-            'align'     =>'right',
-            'sortable' => false,
-            'type'      =>'number',
-            'total'     =>'sum',
-            'index' => 'qty_shipped'
-        ));
-        */
-         /*
-        $this->addColumn('order_increment_id', array(
-                'header' => Mage::helper('inovarti_relatorios')->__('Order Number'),
-                'align' => 'left',
-                'sortable' => true,
-                'index' => 'order_increment_id'
-        ));
-         */
         $this->addExportType('*/*/exportCsv', Mage::helper('inovarti_relatorios')->__('CSV'));
         $this->addExportType('*/*/exportXml', Mage::helper('inovarti_relatorios')->__('XML'));
         return parent::_prepareColumns();
