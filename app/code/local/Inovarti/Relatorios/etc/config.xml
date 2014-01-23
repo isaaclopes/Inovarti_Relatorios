@@ -9,7 +9,7 @@
         <models>
             <inovarti_relatorios>
                 <class>Inovarti_Relatorios_Model</class>
-                <resourceModel>inovarti_relatorios_resource</resourceModel>
+                <resourceModel>inovarti_relatorios</resourceModel>
             </inovarti_relatorios>
         </models>
         <resources>
