@@ -14,7 +14,7 @@ class Inovarti_Relatorios_Adminhtml_ReportnewordersController extends Mage_Admin
                 ->_title($this->__('Products'))
                 ->_title($this->__('Inovarti Pedidos itens de pagamento'));
         $this->loadLayout();
-        $this->_setActiveMenu('report/product/reportneworders');
+        $this->_setActiveMenu('report/product');
         $this->_addContent($this->getLayout()->createBlock('inovarti_relatorios/adminhtml_sales_reportneworders'));
         $this->renderLayout();
     }

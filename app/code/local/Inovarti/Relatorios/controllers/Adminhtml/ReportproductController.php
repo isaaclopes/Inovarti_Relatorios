@@ -12,7 +12,7 @@ class Inovarti_Relatorios_Adminhtml_ReportproductController extends Mage_Adminht
          ->_title($this->__('Products'))
          ->_title($this->__('Inovarti Produtos Pedidos'));
         $this->loadLayout();
-        $this->_setActiveMenu('report/product/reportproduct');
+        $this->_setActiveMenu('report/product');
         $this->_addContent($this->getLayout()->createBlock('inovarti_relatorios/adminhtml_sales_reportproduct'));
         $this->renderLayout();
     }
