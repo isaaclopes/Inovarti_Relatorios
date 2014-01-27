@@ -18,6 +18,11 @@
                                 <title>Produtos Pedidos - Inovarti</title>
                                 <action>adminhtml/reportproduct/</action>
                             </report_product>
+                            <reportneworders translate="title" module="inovarti_relatorios">
+                                <sort_order>20</sort_order>
+                                <title>Pedidos itens de pagamento - Inovarti</title> 
+                                <action>adminhtml/reportneworders/</action>
+                            </reportneworders>
                         </children>
                 </products>
            </children>

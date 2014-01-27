@@ -44,24 +44,19 @@ class Inovarti_Relatorios_Model_Reportproduct extends Mage_Reports_Model_Mysql4_
         }
 
         $this->getSelect()->reset()
-                ->from(array('order_items' => $this->getTable('sales/order_item')), 
-                array(
+                ->from(array('order_items' => $this->getTable('sales/order_item')), array(
                     'qty_ordered' => 'SUM(order_items.qty_ordered)',
                     'qty_pending' => 'SUM((SELECT order_items.qty_ordered FROM sales_flat_order P WHERE order_items.order_id= P.entity_id and P.status in (\'pending_payment\',\'payment_review\')  ))',
                     'qty_paid' => 'SUM((SELECT order_items.qty_ordered FROM sales_flat_order P01 WHERE order_items.order_id= P01.entity_id and P01.status in (\'pagamento_confirmado\',\'verificado_antifraude\',\'verificado_antifraude_capturado_\',\'processing\')  ))',
                     'order_items_name' => 'order_items.name'
                 ))
                 ->joinInner(
-                        array('order' => $this->getTable('sales/order')), 
-			implode(' AND ', $orderJoinCondition), 
-			array())
+                        array('order' => $this->getTable('sales/order')), implode(' AND ', $orderJoinCondition), array())
                 ->joinLeft(
-                        array('e' => $this->getProductEntityTableName()), 
-			implode(' AND ', $productJoinCondition), 
-			array(
-			'sku' => 'e.sku',
-                        'created_at' => 'e.created_at',
-                        'updated_at' => 'e.updated_at'
+                        array('e' => $this->getProductEntityTableName()), implode(' AND ', $productJoinCondition), array(
+                    'sku' => 'e.sku',
+                    'created_at' => 'e.created_at',
+                    'updated_at' => 'e.updated_at'
                 ))
                 ->joinInner(array(
                     's' => $this->getTable('cataloginventory/stock_item')), "order_items.product_id = s.product_id", array(
