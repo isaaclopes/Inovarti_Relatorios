@@ -12,7 +12,7 @@ class Inovarti_Relatorios_Block_Adminhtml_Sales_ReportNewOrders_Grid extends Mag
 
     public function __construct() {
         parent::__construct();
-        $this->setId('inovarti_relatorios_grid');
+        $this->setId('inovarti_relatorios_reportneworders_grid');
         $this->setDefaultSort('created_at');
         $this->setDefaultDir('ASC');
         $this->setSaveParametersInSession(true);

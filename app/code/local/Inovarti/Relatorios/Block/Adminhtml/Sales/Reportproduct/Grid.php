@@ -12,7 +12,7 @@ class Inovarti_Relatorios_Block_Adminhtml_Sales_Reportproduct_Grid extends Mage_
 
     public function __construct() {
         parent::__construct();
-        $this->setId('inovarti_relatorios_grid');
+        $this->setId('inovarti_relatorios_reportproduct_grid');
         $this->setDefaultSort('created_at');
         $this->setDefaultDir('ASC');
         $this->setSaveParametersInSession(true);
