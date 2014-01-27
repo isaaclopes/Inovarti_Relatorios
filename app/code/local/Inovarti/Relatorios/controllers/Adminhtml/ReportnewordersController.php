@@ -1,4 +1,5 @@
 <?php
+
 /**
  *
  * @category   Inovarti
@@ -6,11 +7,12 @@
  * @author     Suporte <suporte@inovarti.com.br>
  */
 class Inovarti_Relatorios_Adminhtml_ReportnewordersController extends Mage_Adminhtml_Controller_Action {
+
     public function indexAction() {
-        
-       $this->_title($this->__('Reports'))
-         ->_title($this->__('Products'))
-         ->_title($this->__('Inovarti Pedidos itens de pagamento'));
+
+        $this->_title($this->__('Reports'))
+                ->_title($this->__('Products'))
+                ->_title($this->__('Inovarti Pedidos itens de pagamento'));
         $this->loadLayout();
         $this->_setActiveMenu('report/product/reportneworders');
         $this->_addContent($this->getLayout()->createBlock('inovarti_relatorios/adminhtml_sales_reportneworders'));
@@ -23,25 +25,24 @@ class Inovarti_Relatorios_Adminhtml_ReportnewordersController extends Mage_Admin
                 $this->getLayout()->createBlock('inovarti_relatorios/adminhtml_sales_reportneworders_grid')->toHtml()
         );
     }
-    
- 
+
     public function exportCsvAction() {
         // Specify filename for exported CSV file 
         $fileName = 'report_new_orders.csv';
         $content = $this->getLayout()->createBlock('inovarti_relatorios/adminhtml_sales_reportneworders_grid')
-           ->getCsv();
+                ->getCsv();
         $this->_sendUploadResponse($fileName, $content);
     }
- 
+
     public function exportXmlAction() {
         // Specify filename for exported XML file 
         $fileName = 'report_new_orders.xml';
         $content = $this->getLayout()->createBlock('inovarti_relatorios/adminhtml_sales_reportneworders_grid')
-           ->getXml();
+                ->getXml();
         $this->_sendUploadResponse($fileName, $content);
     }
- 
-    protected function _sendUploadResponse($fileName, $content, $contentType='application/octet-stream') {
+
+    protected function _sendUploadResponse($fileName, $content, $contentType = 'application/octet-stream') {
         $response = $this->getResponse();
         $response->setHeader('HTTP/1.1 200 OK', '');
         $response->setHeader('Pragma', 'public', true);
@@ -55,4 +56,5 @@ class Inovarti_Relatorios_Adminhtml_ReportnewordersController extends Mage_Admin
         $response->sendResponse();
         die;
     }
+
 }
