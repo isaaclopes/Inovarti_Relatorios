@@ -26,30 +26,14 @@ class Inovarti_Relatorios_Adminhtml_ReportproductController extends Mage_Adminht
 
     public function exportCsvAction() {
         $fileName = 'stock_product_inovarti.csv';
-        $content = $this->getLayout()->createBlock('inovarti_relatorios/adminhtml_sales_reportproduct_grid')
-               ->getCsv();
-        $this->_sendUploadResponse($fileName, $content);
+        $content = $this->getLayout()->createBlock('inovarti_relatorios/adminhtml_sales_reportproduct_grid')->getCsv();
+        $this->_prepareDownloadResponse($fileName, $content);
     }
 
     public function exportXmlAction() {
-        // Specify filename for exported XML file 
-        $fileName = 'stock_product_inovarti.xml';
-        $content = $this->getLayout()->createBlock('inovarti_relatorios/adminhtml_sales_reportneworders_grid')
-               ->getXml();
-        $this->_sendUploadResponse($fileName, $content);
-    }
-    protected function _sendUploadResponse($fileName, $content, $contentType='application/octet-stream') {
-        $response = $this->getResponse();
-        $response->setHeader('HTTP/1.1 200 OK', '');
-        $response->setHeader('Pragma', 'public', true);
-        $response->setHeader('Cache-Control', 'must-revalidate, post-check=0, pre-check=0', true);
-        $response->setHeader('Content-Disposition', 'attachment; filename=' . $fileName);
-        $response->setHeader('Last-Modified', date('r'));
-        $response->setHeader('Accept-Ranges', 'bytes');
-        $response->setHeader('Content-Length', strlen($content));
-        $response->setHeader('Content-type', $contentType);
-        $response->setBody($content);
-        $response->sendResponse();
-        die;
+        
+        $fileName   = 'stock_product_inovarti.xml';
+        $content    = $this->getLayout()->createBlock('inovarti_relatorios/adminhtml_sales_reportneworders_grid')->getExcel($fileName);
+        $this->_prepareDownloadResponse($fileName, $content);
     }
 }

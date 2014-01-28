@@ -8,15 +8,11 @@
  */
 class Inovarti_Relatorios_Block_Adminhtml_Sales_Reportneworders_Grid extends Mage_Adminhtml_Block_Report_Grid {
 
-    protected $_subReportSize = 0;
-
     public function __construct() {
         parent::__construct();
         $this->setId('inovarti_relatorios_reportneworders_grid');
         $this->setDefaultSort('order_increment_id');
         $this->setDefaultDir('ASC');
-        $this->setSaveParametersInSession(true);
-        $this->setSubReportSize(false);
     }
 
     protected function _prepareCollection() {
@@ -86,12 +82,11 @@ class Inovarti_Relatorios_Block_Adminhtml_Sales_Reportneworders_Grid extends Mag
             'index' => 'qty_ordered',
             'total' => 'sum'
         ));
-
-        $this->addExportType('*/*/exportCsv', $helper->__('Excel CSV'));
-        //$this->addExportType('*/*/exportXml', $helper->__('Excel XML'));
+        
+        $this->addExportType('*/*/exportCsv', $helper->__('CSV'));
+        $this->addExportType('*/*/exportXml', $helper->__('Excel XML'));
         return parent::_prepareColumns();
     }
-
     public function getRowUrl($row) {
         return false;
     }

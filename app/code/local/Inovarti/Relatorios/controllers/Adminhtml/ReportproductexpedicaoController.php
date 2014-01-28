@@ -28,18 +28,13 @@ class Inovarti_Relatorios_Adminhtml_ReportproductexpedicaoController extends Mag
     public function exportCsvAction() {
 
         $fileName = 'stock_productexpedicao_inovarti.csv';
-        $content = $this->getLayout()->createBlock('inovarti_relatorios/adminhtml_sales_reportproductexpedicao_grid')
-                ->getCsv();
-
+        $content = $this->getLayout()->createBlock('inovarti_relatorios/adminhtml_sales_reportproductexpedicao_grid')->getCsv();
         $this->_prepareDownloadResponse($fileName, $content);
     }
-
     public function exportXmlAction() {
-        $fileName = 'stock_productexpedicao_inovarti.xml';
-        $content = $this->getLayout()->createBlock('inovarti_relatorios/adminhtml_sales_reportproductexpedicao_grid')
-                ->getExcelFile();
-
+        
+        $fileName   = 'stock_productexpedicao_inovarti.xml';
+        $content    = $this->getLayout()->createBlock('inovarti_relatorios/adminhtml_sales_reportproductexpedicao_grid')->getExcel($fileName);
         $this->_prepareDownloadResponse($fileName, $content);
     }
-
 }
