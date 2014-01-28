@@ -25,7 +25,20 @@
                 <setup>
                     <module>Inovarti_Relatorios</module>
                 </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
             </inovarti_relatorios_setup>
+            <inovarti_relatorios_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </inovarti_relatorios_write>
+            <inovarti_relatorios_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </inovarti_relatorios_read>
         </resources>
         <blocks>
             <inovarti_relatorios>
