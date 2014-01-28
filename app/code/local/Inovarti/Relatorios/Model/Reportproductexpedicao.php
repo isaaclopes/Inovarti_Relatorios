@@ -56,7 +56,11 @@ class Inovarti_Relatorios_Model_Reportproductexpedicao extends Mage_Reports_Mode
                     'created_at' => 'e.created_at',
                     'updated_at' => 'e.updated_at'
                 ))
+                ->joinLeft(array('t' => $this->getTable('sales/shipment_track')), 't.order_id = order_items.order_id', array(
+                    'TrackingNumber' => 'track_number'
+                ))
                 ->where('parent_item_id IS NULL')
+                ->where('t.carrier_code IS NULL')
                 ->group('order_items.product_id')
                 ->having('SUM(order_items.qty_ordered) > ?', 0);
 

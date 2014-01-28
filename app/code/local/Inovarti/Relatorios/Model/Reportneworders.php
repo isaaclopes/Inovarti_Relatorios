@@ -91,12 +91,16 @@ class Inovarti_Relatorios_Model_Reportneworders extends Mage_Reports_Model_Mysql
                     'shipto_name' => "CONCAT(COALESCE(a.firstname, ''), ' ', COALESCE(a.lastname, ''))",
                     'shipto_address' => "CONCAT(COALESCE(a.street, ''), ' - ', COALESCE(a.city, ''))"
                         ), array())
+                ->joinLeft(array('t' => $this->getTable('sales/shipment_track')), 't.order_id = order_items.order_id', array(
+                    'TrackingNumber' => 'track_number'
+                ))
                 ->joinLeft(
                         array('e' => $this->getProductEntityTableName()), implode(' AND ', $productJoinCondition), array(
                     'created_at' => 'e.created_at',
                     'updated_at' => 'e.updated_at'
                 ))
                 ->where('parent_item_id IS NULL')
+                ->where('t.carrier_code IS NULL')
                 //->group('order_items.product_id')
                 ->having('order_items.qty_ordered > ?', 0);
         //echo $this->getSelect()->__toString();
