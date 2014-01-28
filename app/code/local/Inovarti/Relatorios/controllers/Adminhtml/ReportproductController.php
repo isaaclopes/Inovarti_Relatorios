@@ -24,16 +24,19 @@ class Inovarti_Relatorios_Adminhtml_ReportproductController extends Mage_Adminht
         );
     }
 
-    public function exportStockproductCsvAction() {
+    public function exportCsvAction() {
         $fileName = 'stock_product_inovarti.csv';
-        $grid = $this->getLayout()->createBlock('inovarti_relatorios/adminhtml_sales_reportproduct_grid');
-        $this->_prepareDownloadResponse($fileName, $grid->getCsvFile());
+        $content = $this->getLayout()->createBlock('inovarti_relatorios/adminhtml_sales_reportproduct_grid')
+               ->getCsv();
+        $this->_sendUploadResponse($fileName, $content);
     }
 
-    public function exportStockproductExcelXmlAction() {
+    public function exportXmlAction() {
+        // Specify filename for exported XML file 
         $fileName = 'stock_product_inovarti.xml';
-        $grid = $this->getLayout()->createBlock('inovarti_relatorios/adminhtml_sales_reportproduct_grid');
-        $this->_prepareDownloadResponse($fileName, $grid->getExcelFile($fileName));
+        $content = $this->getLayout()->createBlock('inovarti_relatorios/adminhtml_sales_reportneworders_grid')
+               ->getXml();
+        $this->_sendUploadResponse($fileName, $content);
     }
     protected function _sendUploadResponse($fileName, $content, $contentType='application/octet-stream') {
         $response = $this->getResponse();

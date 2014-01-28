@@ -27,10 +27,9 @@ class Inovarti_Relatorios_Adminhtml_ReportnewordersController extends Mage_Admin
     }
 
     public function exportCsvAction() {
-        // Specify filename for exported CSV file 
         $fileName = 'report_new_orders.csv';
         $content = $this->getLayout()->createBlock('inovarti_relatorios/adminhtml_sales_reportneworders_grid')
-                ->getCsv();
+               ->getCsv();
         $this->_sendUploadResponse($fileName, $content);
     }
 
@@ -38,11 +37,10 @@ class Inovarti_Relatorios_Adminhtml_ReportnewordersController extends Mage_Admin
         // Specify filename for exported XML file 
         $fileName = 'report_new_orders.xml';
         $content = $this->getLayout()->createBlock('inovarti_relatorios/adminhtml_sales_reportneworders_grid')
-                ->getXml();
-        $this->_sendUploadResponse($fileName, $content);
+               ->getExcelFile();
+        $this->_prepareDownloadResponse($fileName, $content);
     }
-
-    protected function _sendUploadResponse($fileName, $content, $contentType = 'application/octet-stream') {
+    protected function _sendUploadResponse($fileName, $content, $contentType='application/octet-stream') {
         $response = $this->getResponse();
         $response->setHeader('HTTP/1.1 200 OK', '');
         $response->setHeader('Pragma', 'public', true);
@@ -56,5 +54,4 @@ class Inovarti_Relatorios_Adminhtml_ReportnewordersController extends Mage_Admin
         $response->sendResponse();
         die;
     }
-
 }

@@ -49,8 +49,8 @@ class Inovarti_Relatorios_Block_Adminhtml_Sales_Reportproductexpedicao_Grid exte
             'total' => 'sum',
             'index' => 'qty_paid'
         ));
-        $this->addExportType('*/*/exportCsv', Mage::helper('inovarti_relatorios')->__('CSV'));
-        $this->addExportType('*/*/exportXml', Mage::helper('inovarti_relatorios')->__('XML'));
+        $this->addExportType('*/*/exportCsv', Mage::helper('inovarti_relatorios')->__('Excel CSV'));
+        //$this->addExportType('*/*/exportXml', Mage::helper('inovarti_relatorios')->__('Excel XML'));
         return parent::_prepareColumns();
     }
 

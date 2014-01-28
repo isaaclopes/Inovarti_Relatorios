@@ -35,7 +35,7 @@ class Inovarti_Relatorios_Block_Adminhtml_Sales_Reportneworders_Grid extends Mag
             'align' => 'left',
             'sortable' => true,
             'index' => 'order_increment_id',
-            'renderer' => 'Inovarti_Relatorios_Block_Adminhtml_Sales_Grid_Renderer_Order',
+            //'renderer' => 'Inovarti_Relatorios_Block_Adminhtml_Sales_Grid_Renderer_Order',
         ));
 
         $this->addColumn('shipto_name', array(
@@ -87,8 +87,8 @@ class Inovarti_Relatorios_Block_Adminhtml_Sales_Reportneworders_Grid extends Mag
             'total' => 'sum'
         ));
 
-        $this->addExportType('*/*/exportCsv', $helper->__('CSV'));
-        $this->addExportType('*/*/exportXml', $helper->__('XML'));
+        $this->addExportType('*/*/exportCsv', $helper->__('Excel CSV'));
+        //$this->addExportType('*/*/exportXml', $helper->__('Excel XML'));
         return parent::_prepareColumns();
     }
 
