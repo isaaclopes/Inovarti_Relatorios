@@ -71,6 +71,14 @@ class Inovarti_Relatorios_Block_Adminhtml_Sales_Reportproduct_Grid extends Mage_
             'total' => 'sum',
             'index' => 'qty_pending'
         ));
+        $this->addColumn('qty_canceled', array(
+            'header' => Mage::helper('reports')->__('Num. Cancelados'),
+            'align' => 'right',
+            'sortable' => false,
+            'type' => 'number',
+            'total' => 'sum',
+            'index' => 'qty_canceled'
+        ));
         $this->addExportType('*/*/exportCsv', Mage::helper('inovarti_relatorios')->__('CSV'));
         $this->addExportType('*/*/exportXml', Mage::helper('inovarti_relatorios')->__('Excel XML'));
         return parent::_prepareColumns();

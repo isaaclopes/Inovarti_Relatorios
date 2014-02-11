@@ -47,6 +47,7 @@ class Inovarti_Relatorios_Model_Reportproduct extends Mage_Reports_Model_Mysql4_
                 ->from(array('order_items' => $this->getTable('sales/order_item')), array(
                     'qty_ordered' => 'SUM(order_items.qty_ordered)',
                     'qty_pending' => 'SUM((SELECT order_items.qty_ordered FROM sales_flat_order P WHERE order_items.order_id= P.entity_id and P.status in (\'pending_payment\',\'payment_review\',\'pending\')  ))',
+                    'qty_canceled' => 'SUM((SELECT order_items.qty_canceled FROM sales_flat_order P WHERE order_items.order_id= P.entity_id and P.status in (\'cancelado_itaushopline\',\'canceled\')  ))',
                     'qty_paid' => 'SUM((SELECT order_items.qty_ordered FROM sales_flat_order P01 WHERE order_items.order_id= P01.entity_id and P01.status in (\'pagamento_confirmado\',\'verificado_antifraude\',\'verificado_antifraude_capturado_\',\'processing\')  ))',
                     'order_items_name' => 'order_items.name'
                 ))
